@@ -1,0 +1,34 @@
+﻿@model SpeedThruLibrary.Truck;
+
+<form asp-action="@ViewData["Action"]">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input hidden asp-for="TruckId" />
+    <div class="form-group">
+        <label asp-for="BedSize" class="control-label"></label>
+        <input asp-for="BedSize" class="form-control" />
+        <span asp-validation-for="BedSize" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Make" class="control-label"></label>
+        <input asp-for="Make" class="form-control" />
+        <span asp-validation-for="Make" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Model" class="control-label"></label>
+        <input asp-for="Model" class="form-control" />
+        <span asp-validation-for="Model" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Year" class="control-label"></label>
+        <input asp-for="Year" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Doors" class="control-label"></label>
+        <input asp-for="Doors" class="form-control" />
+        <span asp-validation-for="Doors" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="@ViewData["Action"]" class="btn btn-primary" />
+    </div>
+</form>
