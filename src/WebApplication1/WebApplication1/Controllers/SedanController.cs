@@ -8,106 +8,105 @@ using SpeedThruLibrary;
 
 namespace mvcEFspeedthru.Controllers
 {
-    public class TruckController : Controller
+    public class SedanController : Controller
     {
-        private readonly IRepository<Truck> _truckRepo;
+        private readonly IRepository<Sedan> _sedanRepo;
 
-        public TruckController(IRepository<Truck> truckRepo)
+        public SedanController(IRepository<Sedan> sedanRepo)
         {
-            _truckRepo = truckRepo;
+            _sedanRepo = sedanRepo;
         }
-
-        // GET: Truck
+        // GET: Sedan
         public ActionResult Index()
         {
-            return View(_truckRepo.ListAll());
+            return View(_sedanRepo.ListAll());
         }
 
-        // GET: Truck/Details/5
+        // GET: Sedan/Details/5
         public ActionResult Details(int id)
         {
-            return View(_truckRepo.GetById(id));
+            return View(_sedanRepo.GetById(id));
         }
 
-        // GET: Truck/Create
+        // GET: Sedan/Create
         public ActionResult Create()
         {
-            return View(new Truck());
+            return View(new Sedan());
         }
 
-        // POST: Truck/Create
+        // POST: Sedan/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Truck newTruck, IFormCollection collection)
+        public ActionResult Create(Sedan newSedan, IFormCollection collection)
         {
+      
             try
             {
-               if(!ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
-                    return View(newTruck);
+                    return View(newSedan);
                 }
 
-                _truckRepo.NewCar(newTruck);
+                _sedanRepo.NewCar(newSedan);
 
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                //todo log the exception
+               //todo log exception
             }
-            return View(newTruck);
+            return View(newSedan);
         }
 
-        // GET: Truck/Edit/5
+        // GET: Sedan/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(_truckRepo.GetById(id));
+            return View(_sedanRepo.GetById(id));
         }
 
-        // POST: Truck/Edit/5
+        // POST: Sedan/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Truck editedTruck, IFormCollection collection)
+        public ActionResult Edit(int id, Sedan editedSedan, IFormCollection collection)
         {
             if (!ModelState.IsValid)
             {
-                return View(editedTruck);
+                return View(editedSedan);
             }
             try
             {
-                _truckRepo.EditCar(editedTruck);
+                _sedanRepo.EditCar(editedSedan);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-               //Todo log exception
+              //todo log exception
             }
-
-            return View(editedTruck);
+            return View(editedSedan);
         }
 
-        // GET: Truck/Delete/5
+        // GET: Sedan/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(_truckRepo.GetById(id));
+            return View(_sedanRepo.GetById(id));
         }
 
-        // POST: Truck/Delete/5
+        // POST: Sedan/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
             try
             {
-                _truckRepo.DeleteCar(id);
+                _sedanRepo.DeleteCar(id);
 
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                //todo log the exception
-                }
-            return View(_truckRepo.GetById(id));
+               //todo log exception
+            }
+            return View(_sedanRepo.GetById(id));
         }
     }
 }

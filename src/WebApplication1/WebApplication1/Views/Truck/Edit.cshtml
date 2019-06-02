@@ -1,11 +1,10 @@
 ﻿@model SpeedThruLibrary.Truck
 
 @{
-    ViewData["Title"] = "Create Truck";
-    ViewData["Action"] = "Create";
+    ViewData["Title"] = "Edit Truck";
+    ViewData["Action"] = "Edit";
 }
 
-<h1>Create</h1>
 
 <h4>Truck</h4>
 <hr />
@@ -19,6 +18,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

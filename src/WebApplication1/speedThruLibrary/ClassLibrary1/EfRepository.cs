@@ -29,12 +29,14 @@ namespace SpeedThruLibrary
         {
            var carToRemove = GetById(id);
             _speedDbContext.Set<T>().Remove(carToRemove);
+            _speedDbContext.SaveChanges();
 
         }
 
         public void EditCar(T editedCar)
         {
-            throw new NotImplementedException();
+            _speedDbContext.Set<T>().Update(editedCar);
+            _speedDbContext.SaveChanges();
         }
 
             public void NewCar(T newCar)

@@ -1,0 +1,18 @@
+﻿@model SpeedThruLibrary.Sedan
+
+@{
+    ViewData["Title"] = "Edit Sedan";
+    ViewData["Action"] = "Edit";
+}
+<h4>Sedan</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @Html.Partial("_editSedan", Model, ViewData)
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

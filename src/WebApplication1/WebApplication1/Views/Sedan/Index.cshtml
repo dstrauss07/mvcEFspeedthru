@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SpeedThruLibrary.Sedan>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SedanId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cylinders)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doors)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SedanId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cylinders)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doors)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.SedanId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SedanId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SedanId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
